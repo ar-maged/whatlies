@@ -7,6 +7,10 @@ from typing import Union, List
 from sklearn.metrics import pairwise_distances
 from sense2vec import Sense2Vec, Sense2VecComponent
 
+from whatlies.embedding import Embedding
+from whatlies.embeddingset import EmbeddingSet
+from whatlies.language.common import _selected_idx_spacy
+
 
 class Sense2VecLangauge:
     """
