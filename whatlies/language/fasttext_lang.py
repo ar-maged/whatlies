@@ -20,9 +20,7 @@ class FasttextLanguage:
     Important:
         The vectors are not given by this library they must be download upfront.
         You can find the download links [here](https://fasttext.cc/docs/en/crawl-vectors.html).
-        To train your own fasttext model see the guide [here](https://fasttext.cc/docs/en/python-module.html#word-representation-model).
 
-    Warning:
         You could theoretically use fasttext to train your own models with this code;
 
         ```
@@ -42,9 +40,10 @@ class FasttextLanguage:
         > lang = FasttextLanguage("result/data-skipgram-20.bin")
         ```
 
-        But you need to be aware that the fasttext library from facebook has gone stale.
-        Last update on pypi was June 2019. Our preferred usecase for it is to use the pretrained vectors.
-        Note that you can also import these via spaCy but this requires a packaging step.
+        To train your own fasttext model see the guide [here](https://fasttext.cc/docs/en/python-module.html#word-representation-model).
+
+        Note that you can also import these via spaCy but this requires a packaging step and spaCy has
+        different language behavior in the retreival of embeddings.
 
     Arguments:
         model: name of the model to load, be sure that it's downloaded or trained beforehand
