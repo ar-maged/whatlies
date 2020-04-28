@@ -88,7 +88,7 @@ class FasttextLanguage:
 
         **Usage**
         ```python
-        > lang = FasttextLanguage("cc.en.300.bin")
+        > lang = FasttextLanguage("path/to/cc.en.300.bin")
         > lang['python']
         > lang[['python'], ['snake']]
         > lang[['nobody expects'], ['the spanish inquisition']]
