@@ -64,3 +64,7 @@ def test_emb_plot_no_err_3d():
 def test_emb_str_method(emb):
     for char in "xyz":
         assert str(emb[char]) == char
+
+
+def test_norm_vector(emb):
+    assert np.isclose(emb['x'].norm, 1.0)

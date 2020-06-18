@@ -37,6 +37,10 @@ class Embedding:
         setattr(result, name, func(result))
         return result
 
+    @property
+    def norm(self):
+        return np.linalg.norm(self.vector)
+
     def __add__(self, other) -> "Embedding":
         """
         Add two embeddings together.
