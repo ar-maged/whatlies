@@ -1,11 +1,11 @@
 import pytest
 
-from whatlies.language import BPEmbLang
+from whatlies.language import BytePairLang
 
 
 @pytest.fixture()
 def lang():
-    return BPEmbLang("en")
+    return BytePairLang("en", vs=1000, dim=100)
 
 
 def test_single_token_words(lang):

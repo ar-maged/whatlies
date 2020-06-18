@@ -3,7 +3,7 @@ from bpemb import BPEmb
 from whatlies import Embedding, EmbeddingSet
 
 
-class BPEmbLang:
+class BytePairLang:
     """
     This object is used to lazily fetch [Embedding][whatlies.embedding.Embedding]s or
     [EmbeddingSet][whatlies.embeddingset.EmbeddingSet]s from a Byte-Pair Encoding
@@ -20,19 +20,20 @@ class BPEmbLang:
 
     Arguments:
         lang: name of the model to load
+        vs: the vocabulary size that the byte pair embedding needs to use
 
     **Usage**:
 
     ```python
-    > from whatlies.language import BPEmbLang
-    > lang = BPEmbLang(lang="en")
+    > from whatlies.language import BytePairLang
+    > lang = BytePairLang(lang="en")
     > lang['python']
-    > lang = BPEmbLang(lang="multi")
+    > lang = BytePairLang(lang="multi")
     > lang[['hund', 'hond', 'dog']]
     ```
     """
-    def __init__(self, lang):
-        self.module = BPEmb(lang=lang)
+    def __init__(self, lang: str, vs: int = 10000, dim: int = 100):
+        self.module = BPEmb(lang=lang, vs=vs, dim=dim)
 
     def __getitem__(self, item):
         """
@@ -44,7 +45,7 @@ class BPEmbLang:
 
         **Usage**
         ```python
-        > lang = BPEmbLang(lang="en")
+        > lang = BytePairLang(lang="en")
         > lang['python']
         > lang[['python', 'snake']]
         > lang[['nobody expects', 'the spanish inquisition']]
